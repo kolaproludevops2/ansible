@@ -1,13 +1,12 @@
 - name: loop
-  hosts: local
+  hosts: all
   connection: local
   tasks:
-  - name: print names
-    ansible.builtin.debug:
-      msg: "Hello, {{ item }}"
+  - name: install packages
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: "{{ item }}"
     loop:
-    - Suresh
-    - Mahesh
-    - Jagan
-    - Sagar
-    - Avinash
+    - {name: 'nginx', state: 'present'}
+    - {name: 'zip', state: 'present'}
+    

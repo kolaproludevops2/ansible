@@ -1,5 +1,5 @@
 - name : Gathering facts
-  hosts: local
+  hosts: inventory
   connection: local
   tasks:
   - name: print facts
